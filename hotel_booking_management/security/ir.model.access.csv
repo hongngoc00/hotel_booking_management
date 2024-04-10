@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hotel_booking_management_user,hotel_booking_management_user,hotel_booking_management.model_hotel_booking_management,base.group_user,1,1,1,1
-access_room_management_user,room_management_user,hotel_booking_management.model_room_management,base.group_user,1,1,1,1
-access_feature_management_user,feature_management_user,hotel_booking_management.model_feature_facility_management,base.group_user,1,1,1,1
