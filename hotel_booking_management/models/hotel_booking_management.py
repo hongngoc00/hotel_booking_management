@@ -1,5 +1,6 @@
 import win32api
 
+from datetime import date
 from odoo import api, models, fields, _
 from odoo.exceptions import ValidationError
 
@@ -16,6 +17,10 @@ class HotelBookingManagement(models.Model):
     user_details = fields.Text(string="User details", compute="_compute_user_details", store=True)
     price = fields.Float(related='room_id.list_price', store=True, string='Price')
     booking_date = fields.Date(string='Booking date')
+    check_in = fields.Date(string='Check-in')
+    check_out = fields.Date(string='Check-out')
+    payment_state = fields.Selection([('done', 'Done'), ('pending', 'Pending'), ('fail', 'Failed')],
+                                     string='Payment state')
 
     @api.depends('user_id')
     def _compute_user_details(self):
@@ -56,7 +61,7 @@ class ProductTemplate(models.Model):
                              string='Status', default='available', required=True)
     room_type = fields.Selection([('single', 'Single'), ('double', 'Double')],
                                  string='Room Type', default='single', required=True)
-    room_description = fields.Text(string='Description')
+    room_description = fields.Html(string='Description')
 
     @api.constrains('state')
     def compute_ribbon(self):
@@ -70,16 +75,23 @@ class ProductTemplate(models.Model):
             rec.website_ribbon_id.html = dict_val[rec.state]
             rec.website_ribbon_id.html_class = dict_color[rec.state]
 
-    def booking_room(self):
+    def booking_room(self, name, phone, address, check_in, check_out):
         if self.state == 'available':
-            check_room = self.env['hotel.booking.management'].sudo().search(
-                [('room_id', '=', self.id), ('status', '!=', 'canceled')])
+            if check_in and check_out:
+                list_check_in = check_in.split('-')
+                date_check_in = date(int(list_check_in[0]), int(list_check_in[1]), int(list_check_in[2]))
+                list_check_out = check_out.split('-')
+                date_check_out = date(int(list_check_out[0]), int(list_check_out[1]), int(list_check_out[2]))
+            check_room = self.env['hotel.booking.management'].sudo().search([('room_id', '=', self.id), ('status', '!=', 'canceled')])
             if not check_room:
                 self.env['hotel.booking.management'].sudo().create({
                     'room_id': self.id,
                     'status': 'waiting_confirm',
                     'user_id': self._uid,
-                    'booking_date': fields.Datetime.now()
+                    'booking_date': fields.Datetime.now(),
+                    'check_in': date_check_in,
+                    'check_out': date_check_out,
+                    'payment_state': 'done'
                 })
             else:
                 raise ValidationError('Phong nay dang trong trang thai cho duyet!')

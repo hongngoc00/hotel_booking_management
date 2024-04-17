@@ -66,6 +66,28 @@
                         </t>
                     </div>
                 </t>
+                <t t-if="len(room_ids) &gt; 4 and len(room_ids) &lt; 7">
+                    <div class="row">
+                        <t t-foreach="room_ids" t-as="item">
+                            <t t-if="item.status != 'canceled'">
+                                <div class="card col-md-4" style="width: 18rem; margin-left: 40px;">
+                                    <div class="card-body placeholder">
+                                        <h5 class="card-title"><t t-esc="item.room_id.name"/></h5>
+                                        <p class="card-text">Price: <t t-esc="item.price"/>/night</p>
+                                        <p class="card-text">Date: <t t-esc="item.booking_date"/></p>
+                                        <t t-if="item.status == 'booked'">
+                                            <p class="card-text">Status: <span class="badge rounded-pill text-bg-success">Booked</span></p>
+                                        </t>
+                                        <t t-if="item.status == 'waiting_confirm'">
+                                            <p class="card-text">Status: <span class="badge text-bg-warning">Waiting to confirm</span></p>
+                                        </t>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                            </t>
+                        </t>
+                    </div>
+                </t>
             </div>
         </t>
     </template>

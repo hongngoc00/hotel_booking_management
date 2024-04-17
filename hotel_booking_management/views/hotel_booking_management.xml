@@ -30,7 +30,7 @@
         <field name="inherit_id" ref="account.product_template_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='categ_id']" position="after">
-                <field name="room_description"/>
+                <field name="room_description" widget="html"/>
             </xpath>
             <xpath expr="//header/button" position="attributes">
                 <attribute name="invisible">1</attribute>

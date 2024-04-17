@@ -10,8 +10,11 @@
                 <field name="price" class="oe_left"/>
                 <field name="room_type"/>
                 <field name="status" />
-                <button name="action_confirm_booking" class="oe_highlight" type="object" string="Confirm"/>
-                <button name="action_reject_booking" class="oe_highlight" type="object" string="Reject"/>
+                <field name="check_in" eval="time.strftime('%d-%m-%Y')"/>
+                <field name="check_out" eval="time.strftime('%d-%m-%Y')"/>
+                <field name="payment_state"/>
+                <button name="action_confirm_booking" class="oe_highlight" type="object" string="Confirm" attrs="{'invisible': [('status', '!=', 'waiting_confirm')]}"/>
+                <button name="action_reject_booking" class="oe_highlight" type="object" string="Reject" attrs="{'invisible': [('status', '!=', 'waiting_confirm')]}"/>
             </tree>
         </field>
     </record>
