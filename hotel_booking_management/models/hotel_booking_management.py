@@ -96,5 +96,5 @@ class ProductTemplate(models.Model):
             else:
                 raise ValidationError('Phong nay dang trong trang thai cho duyet!')
         else:
-            win32api.MessageBox(0, 'This room are Unavailable', 'Message box', 0x00001000)
+            raise ValidationError('Unavailable!')
 

@@ -30,7 +30,7 @@
                         <div class="titlemodal">Confirm booking</div>
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="https://quantrinhahang.edu.vn/wp-content/uploads/2019/04/villa-thiet-ke-hien-dai-voi-khong-gian-tach-biet.jpg"></img>
+                                <img src="https://quantrinhahang.edu.vn/wp-content/uploads/2019/04/villa-thiet-ke-hien-dai-voi-khong-gian-tach-biet.jpg" style="width: inherit;"></img>
                             </div>
                             <div class="col-md-6">
                                 <span style="font-weight: bold;">BOOKING DETAILS</span>
@@ -68,7 +68,7 @@
     </template>
     <template id="add_to_cart_wrap_custom_text" inherit_id="website_sale.product" active="True" customize_show="True" name="Terms and Conditions" priority="21">
         <xpath expr="//div[@id='add_to_cart_wrap']" position="replace">
-            <a data-animation-selector=".o_wsale_product_images" role="button" id="hotel_booking_checkout" class="btn btn-primary hotel_booking_checkout btn-lg my-1 mr-1 px-5 font-weight-bold flex-grow-1" href="/booking/checkout"><i class="fa fa-hand-o-right mr-2"/>Booking</a>
+            <a data-animation-selector=".o_wsale_product_images" role="button" id="hotel_booking_checkout" class="btn btn-primary hotel_booking_checkout btn-lg my-1 mr-1 px-5 font-weight-bold flex-grow-1"><i class="fa fa-hand-o-right mr-2"/>Booking</a>
             <div id="product_option_block" class="d-inline-block align-middle"/>
         </xpath>
     </template>

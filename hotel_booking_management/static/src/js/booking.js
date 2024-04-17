@@ -19,7 +19,7 @@ publicWidget.registry.hotelBookingRoom = publicWidget.Widget.extend({
     init: function () {
         this._super.apply(this, arguments);
         // hide cart
-        document.getElementsByClassName('o_wsale_my_cart')[0].style.display = 'none';
+        //document.getElementsByClassName('o_wsale_my_cart')[0].style.display = 'none';
     },
 
     /**
