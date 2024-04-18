@@ -10,11 +10,12 @@
     'depends': ['hr', 'website', 'product', 'website_sale'],
     'data': [
         'security/ir.model.access.csv',
-        # 'security/hotel_booking_security.xml',
-        'views/templates.xml',
-        'views/hotel_booking_management.xml',
-        'views/room_management.xml',
-        'views/portal.xml',
+        'views/product_template.xml',
+        'views/feature_facility_management.xml',
+        'views/booking_management.xml',
+        'views/website_ui_templates.xml',
+        'views/my_booking_website.xml',
+        'views/menu_item.xml',
     ],
     'assets': {
         'web.assets_frontend': [

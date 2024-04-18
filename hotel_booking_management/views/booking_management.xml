@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="room_management_tree_view" model="ir.ui.view">
-        <field name="name">hotel.booking.tree.view</field>
+    <record id="booking_management_tree_view" model="ir.ui.view">
+        <field name="name">booking.management.tree.view</field>
         <field name="model">hotel.booking.management</field>
         <field name="arch" type="xml">
-            <tree decoration-success="status == 'booked'" decoration-danger="status == 'canceled'" decoration-warning="status == 'waiting_confirm'">
+            <tree create="0" decoration-success="status == 'booked'" decoration-danger="status == 'canceled'" decoration-warning="status == 'waiting_confirm'">
                 <field name="user_details" />
                 <field name="room_id" />
                 <field name="price" class="oe_left"/>
@@ -19,8 +19,8 @@
         </field>
     </record>
 
-    <record id="room_management_form_view" model="ir.ui.view">
-        <field name="name">hotel.booking.form.view</field>
+    <record id="booking_management_form_view" model="ir.ui.view">
+        <field name="name">booking.management.form.view</field>
         <field name="model">hotel.booking.management</field>
         <field name="arch" type="xml">
             <form>
@@ -37,8 +37,8 @@
         </field>
     </record>
 
-    <record id="hotel_booking_management_search" model="ir.ui.view">
-        <field name="name">hotel_booking_management.search</field>
+    <record id="booking_management_search" model="ir.ui.view">
+        <field name="name">booking.management.search</field>
         <field name="model">hotel.booking.management</field>
         <field name="arch" type="xml">
             <search string="Rooms">
@@ -52,12 +52,12 @@
         </field>
     </record>
 
-    <record id="hotel_booking_action" model="ir.actions.act_window">
-        <field name="name">Room Booking</field>
+    <record id="booking_management_action" model="ir.actions.act_window">
+        <field name="name">Booking Management</field>
         <field name="res_model">hotel.booking.management</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <menuitem id="menu_configuration" parent="hotel_booking_management.menu_hotel_booking_management" name="Configuration"/>
-    <menuitem id="menu_hotel_booking" parent="hotel_booking_management.menu_hotel_booking_management" name="Manage booking" action="hotel_booking_action"/>
-    <menuitem id="menu_feature_facility_management" parent="menu_configuration" name="Feature and Facility" action="feature_facility_management_action"/>
+<!--    <menuitem id="menu_configuration" parent="hotel_booking_management.menu_hotel_booking_management" name="Configuration"/>-->
+<!--    <menuitem id="menu_hotel_booking" parent="hotel_booking_management.menu_hotel_booking_management" name="Manage booking" action="booking_management_action"/>-->
+<!--    <menuitem id="menu_feature_facility_management" parent="menu_configuration" name="Feature and Facility" action="feature_facility_management_action"/>-->
 </odoo>

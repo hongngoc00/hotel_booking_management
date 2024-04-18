@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_booking_management"
+              name="Booking Management"
+              action="hotel_booking_management.booking_management_action"/>
+    <menuitem id="menu_hotel_booking_management"
+              name="Room Management"
+              parent="hotel_booking_management.menu_booking_management"
+              action="hotel_booking_management.product_template_manage_room_action"/>
+    <menuitem id="menu_configuration"
+              parent="hotel_booking_management.menu_booking_management"
+              name="Configuration"/>
+    <menuitem id="menu_feature_facility_management"
+              parent="menu_configuration"
+              name="Feature and Facility"
+              action="hotel_booking_management.feature_facility_management_action"/>
+</odoo>

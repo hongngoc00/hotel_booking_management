@@ -19,30 +19,6 @@
     </template>
     <template id="my_booking_room">
         <t t-call="website.layout">
-<!--            <div style="width: 80%; margin: auto; padding-top: 50px;">-->
-<!--                <table class="table table-hover">-->
-<!--                    <thead class="thead-dark">-->
-<!--                        <tr>-->
-<!--                            <th scope="col">ID</th>-->
-<!--                            <th scope="col">Room</th>-->
-<!--                            <th scope="col">Price</th>-->
-<!--                            <th scope="col">Date</th>-->
-<!--                            <th scope="col">Status</th>-->
-<!--                        </tr>-->
-<!--                    </thead>-->
-<!--                    <tbody>-->
-<!--                        <t t-foreach="room_ids" t-as="item">-->
-<!--                            <tr>-->
-<!--                                <th scope="row"><t t-esc="item.room_id.id"/></th>-->
-<!--                                <td><t t-esc="item.room_id.name"/></td>-->
-<!--                                <td><t t-esc="item.price"/>/night</td>-->
-<!--                                <td><t t-esc="item.booking_date"/></td>-->
-<!--                                <td><t t-esc="item.status"/></td>-->
-<!--                            </tr>-->
-<!--                        </t>-->
-<!--                    </tbody>-->
-<!--                </table>-->
-<!--            </div>-->
             <div style="width: 80%; margin: auto; padding-top: 50px;">
                 <t t-if="len(room_ids) &lt; 4">
                     <div class="row">
