@@ -57,7 +57,4 @@
         <field name="res_model">hotel.booking.management</field>
         <field name="view_mode">tree,form</field>
     </record>
-<!--    <menuitem id="menu_configuration" parent="hotel_booking_management.menu_hotel_booking_management" name="Configuration"/>-->
-<!--    <menuitem id="menu_hotel_booking" parent="hotel_booking_management.menu_hotel_booking_management" name="Manage booking" action="booking_management_action"/>-->
-<!--    <menuitem id="menu_feature_facility_management" parent="menu_configuration" name="Feature and Facility" action="feature_facility_management_action"/>-->
 </odoo>

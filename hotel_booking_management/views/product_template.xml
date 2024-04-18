@@ -69,5 +69,4 @@
                 (0, 0, {'view_mode': 'form', 'view_id': ref('product_template_form_view')})]"/>
     </record>
 
-<!--    <menuitem id="menu_hotel_booking_management" name="Room Management" action="product_template_manage_room_action"/>-->
 </odoo>
