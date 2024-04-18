@@ -19,51 +19,31 @@
     </template>
     <template id="my_booking_room">
         <t t-call="website.layout">
-            <div style="width: 80%; margin: auto; padding-top: 50px;">
-                <t t-if="len(room_ids) &lt; 4">
-                    <div class="row">
-                        <t t-foreach="room_ids" t-as="item">
-                            <t t-if="item.status != 'canceled'">
-                                <div class="card col-md-4" style="width: 18rem; margin-left: 40px;">
-                                    <div class="card-body placeholder">
-                                        <h5 class="card-title"><t t-esc="item.room_id.name"/></h5>
-                                        <p class="card-text">Price: <t t-esc="item.price"/>/night</p>
-                                        <p class="card-text">Date: <t t-esc="item.booking_date"/></p>
-                                        <t t-if="item.status == 'booked'">
-                                            <p class="card-text">Status: <span class="badge rounded-pill text-bg-success">Booked</span></p>
-                                        </t>
-                                        <t t-if="item.status == 'waiting_confirm'">
-                                            <p class="card-text">Status: <span class="badge text-bg-warning">Waiting to confirm</span></p>
-                                        </t>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </t>
-                        </t>
-                    </div>
-                </t>
-                <t t-if="len(room_ids) &gt; 4 and len(room_ids) &lt; 7">
-                    <div class="row">
-                        <t t-foreach="room_ids" t-as="item">
-                            <t t-if="item.status != 'canceled'">
-                                <div class="card col-md-4" style="width: 18rem; margin-left: 40px;">
-                                    <div class="card-body placeholder">
-                                        <h5 class="card-title"><t t-esc="item.room_id.name"/></h5>
-                                        <p class="card-text">Price: <t t-esc="item.price"/>/night</p>
-                                        <p class="card-text">Date: <t t-esc="item.booking_date"/></p>
-                                        <t t-if="item.status == 'booked'">
-                                            <p class="card-text">Status: <span class="badge rounded-pill text-bg-success">Booked</span></p>
-                                        </t>
-                                        <t t-if="item.status == 'waiting_confirm'">
-                                            <p class="card-text">Status: <span class="badge text-bg-warning">Waiting to confirm</span></p>
-                                        </t>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </t>
-                        </t>
-                    </div>
-                </t>
+            <div style="width: 80%; margin: auto; padding-top: 50px;" class="my_booking_room">
+                <div class="row">
+                    <t t-foreach="room_ids" t-as="item">
+                        <div class="card col-md-3" style="width: 18rem; margin-left: 100px; margin-bottom: 40px;">
+                            <div class="card-body placeholder">
+                                <h5 class="card-title"><t t-esc="item.room_id.name"/></h5>
+                                <p class="id-manage-booking" style="visibility: hidden;"><t t-esc="item.room_id.id"/></p>
+                                <p class="card-text">Price: <t t-esc="item.price"/>/night</p>
+                                <p class="card-text">Date: <t t-esc="item.booking_date"/></p>
+                                <p class="card-text">Check-in: <t t-esc="item.check_in"/></p>
+                                <p class="card-text">Check-out: <t t-esc="item.check_out"/></p>
+                                <t t-if="item.status == 'booked'">
+                                    <p class="card-text">Status: <span class="badge rounded-pill text-bg-success">Booked</span></p>
+                                </t>
+                                <t t-if="item.status == 'waiting_confirm'">
+                                    <p class="card-text">Status: <span class="badge text-bg-warning">Waiting to confirm</span></p>
+                                    <a href="#" class="btn btn-primary cancel-booking">Cancel Booking</a>
+                                </t>
+                                <t t-if="item.status == 'canceled'">
+                                    <p class="card-text">Status: <span class="badge text-bg-danger">Canceled</span></p>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </div>
             </div>
         </t>
     </template>

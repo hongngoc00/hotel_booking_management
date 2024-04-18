@@ -36,3 +36,6 @@ class HotelBookingManagement(models.Model):
         for rec in self:
             rec.status = 'canceled'
             rec.room_id.state = 'available'
+
+    def cancel_booking(self):
+        self.status = 'canceled'
