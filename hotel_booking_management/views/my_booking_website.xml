@@ -25,7 +25,7 @@
                         <div class="card col-md-3" style="width: 18rem; margin-left: 100px; margin-bottom: 40px;">
                             <div class="card-body placeholder">
                                 <h5 class="card-title"><t t-esc="item.room_id.name"/></h5>
-                                <p class="id-manage-booking" style="visibility: hidden;"><t t-esc="item.room_id.id"/></p>
+                                <p class="id-manage-booking" style="visibility: hidden;"><t t-esc="item.id"/></p>
                                 <p class="card-text">Price: <t t-esc="item.price"/>/night</p>
                                 <p class="card-text">Date: <t t-esc="item.booking_date"/></p>
                                 <p class="card-text">Check-in: <t t-esc="item.check_in"/></p>
