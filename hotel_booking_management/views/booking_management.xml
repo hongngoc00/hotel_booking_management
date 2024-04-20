@@ -4,17 +4,18 @@
         <field name="name">booking.management.tree.view</field>
         <field name="model">hotel.booking.management</field>
         <field name="arch" type="xml">
-            <tree create="0" decoration-success="status == 'booked'" decoration-danger="status == 'canceled'" decoration-warning="status == 'waiting_confirm'">
+            <tree create="0" decoration-success="status == 'booked'" decoration-danger="status == 'canceled'" decoration-warning="status == 'waiting_confirm'" default_order='create_date desc'>
                 <field name="user_details" />
                 <field name="room_id" />
                 <field name="price" class="oe_left"/>
-                <field name="room_type"/>
-                <field name="status" />
+                <field name="payment_state"/>
                 <field name="check_in" eval="time.strftime('%d-%m-%Y')"/>
                 <field name="check_out" eval="time.strftime('%d-%m-%Y')"/>
-                <field name="payment_state"/>
-                <button name="action_confirm_booking" class="oe_highlight" type="object" string="Confirm" attrs="{'invisible': [('status', '!=', 'waiting_confirm')]}"/>
-                <button name="action_reject_booking" class="oe_highlight" type="object" string="Reject" attrs="{'invisible': [('status', '!=', 'waiting_confirm')]}"/>
+                <field name="status" />
+                <button name="action_confirm_booking" class="btn btn-success" type="object" string="Confirm" attrs="{'invisible': [('status', '!=', 'waiting_confirm')]}"/>
+                <button name="action_reject_booking" class="btn btn-danger" type="object" string="Reject" attrs="{'invisible': [('status', '=', 'canceled')]}"/>
+                <button name="action_refund_booking" class="btn btn-warning" type="object" string="Refund"
+                        attrs="{'invisible': ['|', ('status', '!=', 'canceled'), ('payment_state', '=', 'refunded')]}"/>
             </tree>
         </field>
     </record>

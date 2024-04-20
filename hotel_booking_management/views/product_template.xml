@@ -8,8 +8,9 @@
             <tree>
                 <field name="name" />
                 <field name="state"/>
-                <field name="room_type"/>
-                <field name="list_price" />
+                <field name="public_categ_ids" widget="many2many_tags" string="Room Categories"/>
+                <field name="list_price" class="oe_left"/>
+                <field name="website_published" widget="boolean_button" string="Is Published"/>
             </tree>
         </field>
     </record>

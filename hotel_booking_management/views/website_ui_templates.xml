@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <!--    hide cart-->
-    <template id="header_cart_link_custom" inherit_id="website_sale.header_cart_link" active="True" customize_show="True" name="Terms and Conditions" priority="21">
-        <xpath expr="//li[2]" position="replace">aaa</xpath>
-    </template>
     <template id="products_add_to_cart_custom" inherit_id="website_sale.products_add_to_cart" active="True" customize_show="True" name="Hide cart">
         <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="replace"></xpath>
     </template>
@@ -36,26 +33,26 @@
                                 <span style="font-weight: bold;">BOOKING DETAILS</span>
                                 <div class="row" style="margin-bottom: 10px;">
                                     <div class="col-md-6">
-                                        <label for="name">Name</label>
-                                        <input type="text" name="name" t-att-value="name" id="name" class="form-control form-control-sm" autofocus="autofocus"/>
+                                        <label for="name">Name (*)</label>
+                                        <input type="text" name="name" t-att-value="name" id="name" class="form-control form-control-sm" autofocus="autofocus" required=""/>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="phone">Phone number</label>
-                                        <input type="text" name="phone" t-att-value="phone" id="phone" class="form-control form-control-sm" autofocus="autofocus"/>
+                                        <label for="phone">Phone number (*)</label>
+                                        <input type="text" name="phone" t-att-value="phone" id="phone" class="form-control form-control-sm" autofocus="autofocus" required=""/>
                                     </div>
                                 </div>
                                 <div style="margin-bottom: 10px;">
-                                    <label for="address">Address</label>
-                                    <input type="text" name="address" t-att-value="address" id="address" class="form-control form-control-sm" autofocus="autofocus"/>
+                                    <label for="address">Address (*)</label>
+                                    <input type="text" name="address" t-att-value="address" id="address" class="form-control form-control-sm" autofocus="autofocus" required=""/>
                                 </div>
                                 <div class="row" style="margin-bottom: 30px;">
                                     <div class="col-md-6">
-                                        <label for="check_in">Check-in</label>
-                                        <input type="date" name="check_in" t-att-value="check_in" id="check-in" class="form-control form-control-sm" autofocus="autofocus"/>
+                                        <label for="check_in">Check-in (*)</label>
+                                        <input type="date" name="check_in" t-att-value="check_in" id="check-in" class="form-control form-control-sm" autofocus="autofocus" required=""/>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="check_out">Check-out</label>
-                                        <input type="date" name="check_out" t-att-value="check_out" id="check-out" class="form-control form-control-sm" autofocus="autofocus"/>
+                                        <label for="check_out">Check-out (*)</label>
+                                        <input type="date" name="check_out" t-att-value="check_out" id="check-out" class="form-control form-control-sm" autofocus="autofocus" required=""/>
                                     </div>
                                 </div>
                                 <button class="btn btn-info pay-now-booking" id="confirm-booking" style="width: inherit;">Pay Now</button>

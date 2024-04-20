@@ -16,8 +16,6 @@ class ProductTemplate(models.Model):
     feature_facility_id = fields.Many2many('feature.facility.management')
     state = fields.Selection([('available', 'Available'), ('unavailable', 'Unavailable'), ('fixing', 'Fixing')],
                              string='Status', default='available', required=True)
-    room_type = fields.Selection([('single', 'Single'), ('double', 'Double')],
-                                 string='Room Type', default='single', required=True)
     room_description = fields.Html(string='Description')
 
     @api.constrains('state')
@@ -34,23 +32,32 @@ class ProductTemplate(models.Model):
 
     def booking_room(self, name, phone, address, check_in, check_out):
         if self.state == 'available':
-            if check_in and check_out:
+            if name == '' or phone == '' or address == '':
+                raise ValidationError("Vui lòng điền đầy đủ các thông tin có ký hiệu (*)")
+            if check_in != '' and check_out != '':
                 list_check_in = check_in.split('-')
                 date_check_in = date(int(list_check_in[0]), int(list_check_in[1]), int(list_check_in[2]))
                 list_check_out = check_out.split('-')
                 date_check_out = date(int(list_check_out[0]), int(list_check_out[1]), int(list_check_out[2]))
+                if date_check_in > date_check_out:
+                    raise ValidationError("Ngày Check-in không được lớn hơn ngày Check-out!!")
+            else:
+                raise ValidationError("Vui lòng chọn ngày Check-in và Check-out!!")
             check_room = self.env['hotel.booking.management'].sudo().search([('room_id', '=', self.id), ('status', '!=', 'canceled')])
             if not check_room:
                 self.env['hotel.booking.management'].sudo().create({
                     'room_id': self.id,
                     'status': 'waiting_confirm',
                     'user_id': self._uid,
+                    'name_user_booking': name,
+                    'address': address,
+                    'phone_number': phone,
                     'booking_date': fields.Datetime.now(),
                     'check_in': date_check_in,
                     'check_out': date_check_out,
                     'payment_state': 'done'
                 })
             else:
-                raise ValidationError('Phong nay dang trong trang thai cho duyet!')
+                raise ValidationError('Phòng này đang trong trạng thái chờ duyệt!')
         else:
-            raise ValidationError('Unavailable!')
+            raise ValidationError('Phòng này hiện đang Unavailable!')
