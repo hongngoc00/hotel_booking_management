@@ -13,7 +13,7 @@ class ProductTemplate(models.Model):
     ]
     _name = 'product.template'
 
-    feature_facility_id = fields.Many2many('feature.facility.management')
+    feature_facility_ids = fields.Many2many('feature.facility.management', string='Features & Facilities')
     state = fields.Selection([('available', 'Available'), ('unavailable', 'Unavailable'), ('fixing', 'Fixing')],
                              string='Status', default='available', required=True)
     room_description = fields.Html(string='Description')

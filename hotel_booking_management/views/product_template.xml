@@ -23,6 +23,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='categ_id']" position="after">
                 <field name="room_description" widget="html"/>
+                <field name="feature_facility_ids" widget="many2many_tags"/>
             </xpath>
             <xpath expr="//header/button" position="attributes">
                 <attribute name="invisible">1</attribute>
