@@ -26,7 +26,7 @@ class HotelBookingManagement(models.Model):
     def _compute_user_details(self):
         for rec in self:
             if rec.user_id:
-                rec.user_details = f"Name: {rec.user_id} \n" \
+                rec.user_details = f"Name: {rec.user_id.name} \n" \
                                    f"Phone no: {rec.phone_number} \n" \
                                    f"Address: {rec.address}"
 

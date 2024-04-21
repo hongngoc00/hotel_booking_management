@@ -27,14 +27,14 @@
                         <div class="titlemodal">Confirm booking</div>
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="https://quantrinhahang.edu.vn/wp-content/uploads/2019/04/villa-thiet-ke-hien-dai-voi-khong-gian-tach-biet.jpg" style="width: inherit;"></img>
+                                <img src="/hotel_booking_management/static/src/img/confirm_booking.jpg" style="width: inherit;"></img>
                             </div>
                             <div class="col-md-6">
                                 <span style="font-weight: bold;">BOOKING DETAILS</span>
                                 <div class="row" style="margin-bottom: 10px;">
                                     <div class="col-md-6">
                                         <label for="name">Name (*)</label>
-                                        <input type="text" name="name" t-att-value="name" id="name" class="form-control form-control-sm" autofocus="autofocus" required=""/>
+                                        <input type="text" name="name" t-att-value="request.env.user.name" id="name" class="form-control form-control-sm" autofocus="autofocus" required="" disabled=""/>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="phone">Phone number (*)</label>
