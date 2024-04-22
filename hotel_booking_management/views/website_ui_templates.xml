@@ -19,6 +19,7 @@
     <template id="product_custom_text" inherit_id="website_sale.product" active="True" customize_show="True" name="Terms and Conditions" priority="21">
         <xpath expr="//div[@id='o_product_terms_and_share']" position="replace">
             <div id="o_product_terms_and_share">
+                <div id="room_id" t-field="product.id" class="text-muted my-2" style="visibility: hidden;"/>
                 <p t-field="product.room_description" class="text-muted my-2" />
                 <div class="nenmodal" id="nenmodal-1">
                     <div class="nenmodal2"></div>
