@@ -42,7 +42,7 @@ odoo.define('hotel_booking_management.process_checkout', function (require) {
             this._rpc({
                 model: 'product.template',
                 method: 'booking_room',
-                args: [JSON.parse(this.el.dataset.productTrackingInfo).item_id, name, phone, address, check_in, check_out],
+                args: [Number(document.getElementById('room_id').innerHTML), name, phone, address, check_in, check_out],
             })
             .then(function (result) {
                 document.getElementById("nenmodal-1").classList.toggle("active");

@@ -6,7 +6,7 @@ from odoo.exceptions import ValidationError
 class HotelBookingManagement(models.Model):
     _name = 'hotel.booking.management'
 
-    room_id = fields.Many2one('product.template', string='Room', ondelete='cascade')
+    room_id = fields.Many2one('product.template', string='Room', ondelete='restrict')
     status = fields.Selection([('waiting_confirm', 'Waiting for confirm'), ('booked', 'Booked'), ('canceled', 'Canceled')],
                               string='Status', default='canceled', required=True)
     user_id = fields.Many2one('res.users', string='User')
