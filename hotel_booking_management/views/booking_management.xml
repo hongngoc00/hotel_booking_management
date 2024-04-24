@@ -57,5 +57,7 @@
         <field name="name">Booking Management</field>
         <field name="res_model">hotel.booking.management</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_group_status': True}</field>
+        <field name="search_view_id" ref="booking_management_search"/>
     </record>
 </odoo>
