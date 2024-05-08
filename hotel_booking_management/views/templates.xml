@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    hide cart-->
+    <template id="header_cart_link_custom" inherit_id="website_sale.header_cart_link" active="True" customize_show="True" name="Terms and Conditions" priority="21">
+        <xpath expr="//li[2]" position="replace">aaa</xpath>
+    </template>
+    <template id="products_add_to_cart_custom" inherit_id="website_sale.products_add_to_cart" active="True" customize_show="True" name="Hide cart">
+        <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="replace"></xpath>
+    </template>
+<!--    hide button + - quantity-->
+    <template id="product_quantity_custom" inherit_id="website_sale.product_quantity" active="True" customize_show="True" name="Terms and Conditions" priority="21">
+        <xpath expr="//div[hasclass('css_quantity')]" position="replace"></xpath>
+    </template>
+<!--    custom price-->
+    <template id="product_price_custom" inherit_id="website_sale.product_price" active="True" customize_show="True" name="product price" priority="21">
+        <xpath expr="//h3/span" position="after">
+            <span>/night</span>
+        </xpath>
+    </template>
+
+
+    <template id="product_custom_text" inherit_id="website_sale.product" active="True" customize_show="True" name="Terms and Conditions" priority="21">
+        <xpath expr="//div[@id='o_product_terms_and_share']" position="replace">
+            <div id="o_product_terms_and_share">
+                <p t-field="product.room_description" class="text-muted my-2" />
+                <div class="nenmodal" id="nenmodal-1">
+                    <div class="nenmodal2"></div>
+                    <div class="ndmodal">
+                        <div class="closemodal"><button class="close_confirm_booking">×</button></div>
+                        <div class="titlemodal">Confirm booking</div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="https://quantrinhahang.edu.vn/wp-content/uploads/2019/04/villa-thiet-ke-hien-dai-voi-khong-gian-tach-biet.jpg" style="width: inherit;"></img>
+                            </div>
+                            <div class="col-md-6">
+                                <span style="font-weight: bold;">BOOKING DETAILS</span>
+                                <div class="row" style="margin-bottom: 10px;">
+                                    <div class="col-md-6">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" t-att-value="name" id="name" class="form-control form-control-sm" autofocus="autofocus"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone">Phone number</label>
+                                        <input type="text" name="phone" t-att-value="phone" id="phone" class="form-control form-control-sm" autofocus="autofocus"/>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 10px;">
+                                    <label for="address">Address</label>
+                                    <input type="text" name="address" t-att-value="address" id="address" class="form-control form-control-sm" autofocus="autofocus"/>
+                                </div>
+                                <div class="row" style="margin-bottom: 30px;">
+                                    <div class="col-md-6">
+                                        <label for="check_in">Check-in</label>
+                                        <input type="date" name="check_in" t-att-value="check_in" id="check-in" class="form-control form-control-sm" autofocus="autofocus"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="check_out">Check-out</label>
+                                        <input type="date" name="check_out" t-att-value="check_out" id="check-out" class="form-control form-control-sm" autofocus="autofocus"/>
+                                    </div>
+                                </div>
+                                <button class="btn btn-info pay-now-booking" id="confirm-booking" style="width: inherit;">Pay Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <template id="add_to_cart_wrap_custom_text" inherit_id="website_sale.product" active="True" customize_show="True" name="Terms and Conditions" priority="21">
+        <xpath expr="//div[@id='add_to_cart_wrap']" position="replace">
+            <a data-animation-selector=".o_wsale_product_images" role="button" id="hotel_booking_checkout" class="btn btn-primary hotel_booking_checkout btn-lg my-1 mr-1 px-5 font-weight-bold flex-grow-1"><i class="fa fa-hand-o-right mr-2"/>Booking</a>
+            <div id="product_option_block" class="d-inline-block align-middle"/>
+        </xpath>
+    </template>
+    <template id="process_checkout_custom" inherit_id="website_sale.cart" active="True" customize_show="True" name="Process Checkout Custom" priority="21">
+        <xpath expr="//a[@role='button'][2]" position="replace">
+            <a role="button" class="btn btn-primary float-right d-none d-xl-inline-block hotel_booking_checkout" id="hotel_booking_checkout">
+                <span class="">Checkout</span>
+                <span class="fa fa-chevron-right" />
+            </a>
+        </xpath>
+    </template>
+</odoo>

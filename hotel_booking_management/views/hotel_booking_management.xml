@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="feature_facility_tree_view" model="ir.ui.view">
+        <field name="name">feature.facility.tree_view.tree.view</field>
+        <field name="model">feature.facility.management</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="manage_room_tree_view" model="ir.ui.view">
+        <field name="name">manage.room.tree.view</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="state"/>
+                <field name="room_type"/>
+                <field name="list_price" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">manage.room.form.view</field>
+        <field name="model">product.template</field>
+        <field name="priority">100</field>
+        <field name="inherit_id" ref="account.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="room_description" widget="html"/>
+            </xpath>
+            <xpath expr="//header/button" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//header/button" position="after">
+                <field name="state" widget="statusbar"/>
+            </xpath>
+            <xpath expr="//button[@name='open_pricelist_rules']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@name='options']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='purchase']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='inventory']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='general_information']/group/group[@name='group_general']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='invoicing']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='sales']" position="attributes">
+                <attribute name="string">Website setting</attribute>
+            </xpath>
+            <xpath expr="//group[@name='description']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='general_information']/group[2]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="manage_room_action" model="ir.actions.act_window">
+        <field name="name">Hotel Booking Management</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">form,tree</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('manage_room_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('product_template_form_view')})]"/>
+<!--        <field name="search_view_id" ref="hotel_booking_management_search"/>-->
+<!--        <field name="context">{'group_by': ['status']}</field>-->
+    </record>
+
+    <record id="feature_facility_management_action" model="ir.actions.act_window">
+        <field name="name">Feature Facility Management</field>
+        <field name="res_model">feature.facility.management</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="feature_facility_tree_view"/>
+    </record>
+
+    <menuitem id="menu_hotel_booking_management" name="Hotel Booking" action="manage_room_action"/>
+</odoo>
