@@ -19,3 +19,4 @@ class AutoTest(TransactionCase):
         # test_rebase_3
     
     # test rebase
+    # test rebase 2
