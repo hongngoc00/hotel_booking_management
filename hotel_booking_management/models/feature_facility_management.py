@@ -6,3 +6,7 @@ class FeatureFacilityManagement(models.Model):
 
     name = fields.Char(string='Name')
     icon = fields.Image("Icon")
+
+    def action_change_name(self):
+        for rec in self:
+            rec.name = 'OK'

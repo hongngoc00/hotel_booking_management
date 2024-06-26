@@ -7,7 +7,7 @@
         Hotel Booking Management
     """,
     'author': 'Le Hong Ngoc - Hc',
-    'depends': ['hr', 'website', 'product', 'website_sale'],
+    'depends': ['website', 'product', 'website_sale'],
     'data': [
         'security/ir.model.access.csv',
         'views/product_template.xml',
@@ -26,6 +26,7 @@
             'hotel_booking_management/static/src/css/style.css',
         ],
     },
+    'test': [],
     'license': 'LGPL-3',
     'installable': True,
     'auto_install': False,
