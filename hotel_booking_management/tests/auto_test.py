@@ -15,3 +15,6 @@ class AutoTest(TransactionCase):
         # self.test_hotel_booking.action_confirm_booking()
         self.test_feature.action_change_name()
         self.assertEqual(self.test_feature.name, 'OK', "Room state should be changed to booked!")
+
+        # test_rebase_3
+    
