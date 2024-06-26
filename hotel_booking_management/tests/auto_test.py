@@ -21,3 +21,4 @@ class AutoTest(TransactionCase):
     # test rebase
     # test rebase 2
     # test rebase 4
+    # test rebase 5
